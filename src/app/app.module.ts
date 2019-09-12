@@ -21,7 +21,7 @@ import { MoreComponent } from './more/more.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule  
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
