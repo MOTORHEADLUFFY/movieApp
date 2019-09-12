@@ -7,7 +7,6 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { PlayListComponent } from './play-list/play-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FormsModule } from '@angular/forms';
 import { MoreComponent } from './more/more.component';
 @NgModule({
@@ -22,8 +21,7 @@ import { MoreComponent } from './more/more.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ScrollingModule
+    FormsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
