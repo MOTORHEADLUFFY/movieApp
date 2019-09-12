@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2>
+          <b>Complete List</b>
+        </h2>
+        <div class="list">
+          <div class="list-item" *ngFor="let movie of segmentedList">
+            <div class="row">
+              <div class="col-8">
+                <b> {{movie.title}} </b>
+                <div class="row">
+                  <div class="col-6"> {{movie.releaseDate}}</div>
+                  <div class="col-6"> {{movie.imdbRating}}</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <img height="42" width="42" src="{{movie.posterurl}}">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div *ngFor="let button of paginator">
+            <button (click)="paginate(button)">{{button}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="button" routerLink="/dashboard">Return to Home</button>
+  </div>
+  <div class="col-sm-4"></div>
+</div>

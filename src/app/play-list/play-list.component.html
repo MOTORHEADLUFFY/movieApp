@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2>
+          <b> My Favourites</b>
+        </h2>
+        <br>
+        <div class="list">
+          <div class="list-item" *ngFor="let movie of playList.selectedMovies">
+            <div class="row">
+              <div class="col-8">
+                <b> {{movie.title}} </b>
+                <div class="row">
+                  <div class="col-6"> {{movie.releaseDate}}</div>
+                  <div class="col-6"> {{movie.imdbRating}}</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <img height="50" width="50" src="{{movie.posterurl}}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>

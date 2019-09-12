@@ -1,0 +1,117 @@
+<div class="boundaries">
+  <div class="row">
+    <div class="col-sm-2">
+      <select class="select-css" [(ngModel)]="selectedValue" (change)='onChange()'>
+        <option value="" disabled selected>Genre</option>
+        <option *ngFor="let genre of allGenres" [ngValue]="genre">{{genre}}</option>
+      </select>
+    </div>
+    <div class="col-sm-3 searchbar">
+      <input type="text" placeholder="Search.." [(ngModel)]="searchText" (keyup)="onSearch()">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="col-sm-5"></div>
+    <div class="col-sm-2">
+      <button class="button" routerLink="/more">Load More</button>
+    </div>
+  </div>
+  <div *ngIf="(searchText.length === 0)">
+    <div class="row margins">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h2>
+              <b> Recently Released</b>
+            </h2>
+            <div class="list">
+              <div class="list-item" *ngFor="let movie of recentlyReleased">
+                <div class="row">
+                  <div class="col-2">
+                    <input type="checkbox" [checked]="(selectedHashMap.get(movie.id))" (change)="selectForPlayList(movie)" />
+                  </div>
+                  <div class="col-6">
+                    <b> {{movie.title}} </b>
+                    <div class="row">
+                      <div class="col-6"> {{movie.releaseDate}}</div>
+                      <div class="col-6"> {{movie.imdbRating}}</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img height="42" width="42" src="{{movie.posterurl}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h2>
+              <b>Top Rated</b>
+            </h2>
+            <div class="list">
+              <div class="list-item" *ngFor="let movie of highestRated">
+                <div class="row">
+                  <div class="col-2">
+                    <input type="checkbox" [checked]="(selectedHashMap.get(movie.id))" (change)="selectForPlayList(movie)" />
+                  </div>
+                  <div class="col-6">
+                    <b> {{movie.title}} </b>
+                    <div class="row">
+                      <div class="col-6"> {{movie.releaseDate}}</div>
+                      <div class="col-6"> {{movie.imdbRating}}</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img height="42" width="42" src="{{movie.posterurl}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>
+  <div *ngIf="(searchText.length !== 0)">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h2>
+              <b>Search Results</b>
+            </h2>
+            <div class="list">
+              <div class="list-item" *ngFor="let movie of displayList">
+                <div class="row">
+                  <div class="col-2">
+                    <input type="checkbox" [checked]="(selectedHashMap.get(movie.id))" (change)="selectForPlayList(movie)" />
+                  </div>
+                  <div class="col-6">
+                    <b> {{movie.title}} </b>
+                    <div class="row">
+                      <div class="col-6"> {{movie.releaseDate}}</div>
+                      <div class="col-6"> {{movie.imdbRating}}</div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <img height="42" width="42" src="{{movie.posterurl}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
+  check the boxes to add into your Playlist!
+</div>
